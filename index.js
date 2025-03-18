@@ -7,6 +7,25 @@ const answerButtonsElements = document.getElementById("answer-buttons");
 let shuffledQuestions, currentQuestionIndex;
 let quizScore = 0;
 
+function selectAswer(e){
+    const selectedButton = e.target;
+    const correct = selectedButton.dataset.correct;
+
+    setStatusClass(document.body.correct);
+    Array.from(answerButtonsElements.children).forEach((button) => {
+        setStatusClass(button, button.dataset.correct);
+    });
+    if (shuffledQuestions.length > currentQuestionIndex +1 ){
+        nextButton.classList.remove("hide");
+    } else{
+        startButton.innerText = "restart";
+        startButton.classList.remove("hide");
+    }
+    if(selectedButton.dataset = correct){
+        quizScore++;
+    }
+    document.getElementById("right-answers").innerText = quizScore;
+}
 
 function setStatusClass(element, correct){
     clearStatusClass(element);
