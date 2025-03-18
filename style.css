@@ -14,3 +14,9 @@ body{
     align-items: center;
     background-color: hsl(val(--hue), 100%, 20%);
 }
+body.correct{
+    --hue: var(var(--hue-correct));
+}
+body.wrong{
+    --hue: var(var(--hue-wrong));
+}
