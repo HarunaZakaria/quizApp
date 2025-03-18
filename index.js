@@ -7,6 +7,20 @@ const answerButtonsElements = document.getElementById("answer-buttons");
 let shuffledQuestions, currentQuestionIndex;
 let quizScore = 0;
 
+function showQuestion(question){
+    questionElements.innerText = question.question;
+    question.answer.forEach((answer) =>{
+        const button = document.createElement("button");
+        button.innerText = answer.text;
+        button.classList.add("btn");
+        if(answer.correct){
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAswer);
+        answerButtonsElements.appendChild(button);
+    });
+}
+
 function resetState(){
     clearStatusClass(document.body);
     nextButton.classList.add("hide");
