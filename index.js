@@ -7,6 +7,21 @@ const answerButtonsElements = document.getElementById("answer-buttons");
 let shuffledQuestions, currentQuestionIndex;
 let quizScore = 0;
 
+startButton.addEventListener("click", startGame);
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++;
+    setNextQuestion();
+})
+
+function startGame() {
+    startButton.classList.add("hide");
+    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+    currentQuestionIndex = 0;
+    questionContainerElement.classList.remove("hide");
+    setNextQuestion();
+    quizScore = 0;
+}
+
 function setNextQuestion(){
     resetState();
     showQuestion(shuffledQuestions[currentQuestionIndex])
