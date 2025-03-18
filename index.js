@@ -7,6 +7,11 @@ const answerButtonsElements = document.getElementById("answer-buttons");
 let shuffledQuestions, currentQuestionIndex;
 let quizScore = 0;
 
+function setNextQuestion(){
+    resetState();
+    showQuestion(shuffledQuestions[currentQuestionIndex])
+}
+
 function showQuestion(question){
     questionElements.innerText = question.question;
     question.answer.forEach((answer) =>{
