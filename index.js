@@ -7,6 +7,14 @@ const answerButtonsElements = document.getElementById("answer-buttons");
 let shuffledQuestions, currentQuestionIndex;
 let quizScore = 0;
 
+function resetState(){
+    clearStatusClass(document.body);
+    nextButton.classList.add("hide");
+    while(answerButtonsElements.firstChild){
+        answerButtonsElements.removeChild(answerButtonsElements.firstChild);
+    }
+}
+
 function selectAswer(e){
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct;
